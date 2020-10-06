@@ -9,6 +9,8 @@
 #include <vector>
 
 /* This is a test to know the used standard */
+
+
 template<std::size_t N>
 struct array
 {
