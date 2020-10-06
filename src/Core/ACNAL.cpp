@@ -3,10 +3,7 @@
 
 #include "ACNAL.h"
 
-using namespace std;
-
-int main()
+void printTarget(std::string text)
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+	std::cout << text << '/n';
 }

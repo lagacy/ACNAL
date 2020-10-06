@@ -4,5 +4,14 @@
 #pragma once
 
 #include <iostream>
+#include "_premh.h"
+
+#ifdef ACNAL_EXPORTS
+#define ACNAL_API __declspec(dllexport)
+#else
+#define ACNAL_API __declspec(dllexport)
+#endif
+
+extern "C" ACNAL_API void printTarget(std::string text);
 
 // TODO: Référencez ici les en-têtes supplémentaires nécessaires à votre programme.

@@ -1,9 +1,0 @@
-﻿# CMakeList.txt : projet CMake pour ACNAL, incluez la source et définissez
-# la logique spécifique au projet ici.
-#
-cmake_minimum_required (VERSION 3.8)
-
-# Ajoutez une source à l'exécutable de ce projet.
-add_library (ACNAL SHARED "ACNAL.cpp" "ACNAL.h")
-
-# TODO: Ajoutez des tests et installez des cibles si nécessaire.
