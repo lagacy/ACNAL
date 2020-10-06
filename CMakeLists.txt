@@ -7,7 +7,7 @@ project ("ACNAL")
 
 if(MSVC)
 # warning level 4 and all warnings as errors, use c++20 latest features
-add_compile_options(/W4 /WX /EHsc /Za /std:c++latest)
+add_compile_options(/W4 /EHsc /Za /std:c++latest)
 else()
 # lots of warning and all warnings as error, use c++20
 add_compile_options(-Wall -Wextra -pedantic -Werror -std=c++20)
