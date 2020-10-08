@@ -7,6 +7,7 @@
 #include <ostream>
 #include <string>
 #include <vector>
+#include "ACNAL.h"
 /* This is a test to know the used standard */
 template<std::size_t N>
 struct array
@@ -112,5 +113,6 @@ int main(int argc, char* argv[])
     std::cout << print_osname() << std::endl;
     std::cout << print_usedcompiler() << std::endl;
     std::cout << "Value for Compiler ID is: " << COMPILER_NAME << '\n';
+    printTarget();
     return EXIT_SUCCESS;
 }

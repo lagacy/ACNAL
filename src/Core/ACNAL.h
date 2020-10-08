@@ -2,7 +2,6 @@
 // ou les fichiers Include spécifiques aux projets.
 
 #pragma once
-#include "_premh.h"
 #include <iostream>
 
 #ifdef ACNAL_EXPORTS
@@ -11,6 +10,6 @@
 #define ACNAL_API __declspec(dllexport)
 #endif
 
-extern "C" ACNAL_API void printTarget(std::string text);
+extern "C" ACNAL_API void printTarget();
 
 // TODO: Référencez ici les en-têtes supplémentaires nécessaires à votre programme.

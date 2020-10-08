@@ -3,7 +3,7 @@
 
 #include "ACNAL.h"
 
-void printTarget(std::string text)
+void printTarget()
 {
-	std::cout << text << '/n';
+	std::cout << "This text is coming from ACNAL.cpp" << '\n';
 }
