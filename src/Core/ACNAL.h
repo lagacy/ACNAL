@@ -5,11 +5,11 @@
 #include <iostream>
 
 #ifdef ACNAL_EXPORTS
-#define ACNAL_API __declspec(dllexport)
+#define ACNAL_API extern "C" __declspec(dllexport)
 #else
-#define ACNAL_API __declspec(dllexport)
+#define ACNAL_API extern "C" __declspec(dllexport)
 #endif
 
-extern "C" ACNAL_API void printTarget();
+ ACNAL_API void printTarget();
 
 // TODO: Référencez ici les en-têtes supplémentaires nécessaires à votre programme.
