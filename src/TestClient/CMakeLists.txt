@@ -1,4 +1,5 @@
-﻿
+﻿cmake_minimum_required (VERSION 3.8)
+
 add_executable (TestClient "main.cpp")
 
 set_target_properties(TestClient
@@ -7,5 +8,3 @@ set_target_properties(TestClient
   CXX_EXTENSIONS OFF
   CXX_STANDARD_REQUIRED ON
 )
-
-target_link_libraries(TestClient ACNAL)
