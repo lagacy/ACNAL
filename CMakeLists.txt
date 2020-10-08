@@ -5,6 +5,8 @@ cmake_minimum_required (VERSION 3.8)
 
 project ("ACNAL" LANGUAGES CXX)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 if(MSVC)
 # warning level 4 and all warnings as errors, use c++17 latest features
 add_compile_options(/W4 /EHsc /Za /std:c++17)
