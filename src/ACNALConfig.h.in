@@ -1,0 +1,3 @@
+// the configured options and settings for ACNAL
+#define ACNAL_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define ACNAL_VERSION_MINOR @Tutorial_VERSION_MINOR@

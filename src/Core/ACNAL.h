@@ -2,9 +2,8 @@
 // ou les fichiers Include spécifiques aux projets.
 
 #pragma once
-
-#include <iostream>
 #include "_premh.h"
+#include <iostream>
 
 #ifdef ACNAL_EXPORTS
 #define ACNAL_API __declspec(dllexport)

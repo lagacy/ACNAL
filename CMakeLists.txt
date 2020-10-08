@@ -3,6 +3,9 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/vcpkg/scripts/buildsystems/vcpkg.cmake
+  CACHE STRING "Vcpkg toolchain file")
+
 project ("ACNAL" LANGUAGES CXX)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -32,4 +35,5 @@ add_compile_definitions(IS_MSVC_CXX_COMPILER)
 endif()
 
 # Incluez les sous-projets.
-add_subdirectory ("src")
+add_subdirectory("src")
+add_subdirectory ("TestClient")
