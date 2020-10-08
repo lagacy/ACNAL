@@ -69,15 +69,36 @@ enum {
 };
 
 // Here we get the actual OS with the CMAKE defined preprocessor
-std::string say_hello() {
+std::string print_osname() {
 #ifdef IS_WINDOWS
-    return std::string("Hello from Windows!");
+    return std::string("Detected Windows as OS!");
 #elif IS_LINUX
-    return std::string("Hello from Linux!");
+    return std::string("Detected Linux as OS!");
 #elif IS_MACOS
-    return std::string("Hello from macOS!");
+    return std::string("Detected macOS as OS!");
 #else
-    return std::string("Hello from an unknown system!");
+    return std::string("Detected an unknown system!");
+#endif
+}
+
+std::string print_usedcompiler() {
+#ifdef IS_INTEL_CXX_COMPILER
+    // only compiled when Intel compiler is selected
+    // such compiler will not compile the other branches
+    return std::string("Detected Intel compiler!");
+#elif IS_GNU_CXX_COMPILER
+    // only compiled when GNU compiler is selected
+    // such compiler will not compile the other branches
+    return std::string("Detected GNU compiler!");
+#elif IS_PGI_CXX_COMPILER
+    // etc.
+    return std::string("Detected PGI compiler!");
+#elif IS_XL_CXX_COMPILER
+    return std::string("Detected XL compiler!");
+#elif IS_MSVC_CXX_COMPILER
+    return std::string("Detected MSVC compiler!");
+#else
+    return std::string("Detected unknown compiler");
 #endif
 }
 
@@ -88,6 +109,8 @@ int main(int argc, char* argv[])
     std::cout << "C++ " << std::setfill('0') << std::setw(2) << cpp_year % 100 << '\n';
     std::cout << "============================================================" << '\n' << '\n';
 
-    std::cout << say_hello() << std::endl;
+    std::cout << print_osname() << std::endl;
+    std::cout << print_usedcompiler() << std::endl;
+    std::cout << "Value for Compiler ID is: " << COMPILER_NAME << '\n';
     return EXIT_SUCCESS;
 }
