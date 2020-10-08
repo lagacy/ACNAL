@@ -8,8 +8,6 @@
 #include <string>
 #include <vector>
 /* This is a test to know the used standard */
-
-
 template<std::size_t N>
 struct array
 {
@@ -69,10 +67,27 @@ enum {
     is_cpp11::value ? 2011 :
     2003
 };
+
+// Here we get the actual OS with the CMAKE defined preprocessor
+std::string say_hello() {
+#ifdef IS_WINDOWS
+    return std::string("Hello from Windows!");
+#elif IS_LINUX
+    return std::string("Hello from Linux!");
+#elif IS_MACOS
+    return std::string("Hello from macOS!");
+#else
+    return std::string("Hello from an unknown system!");
+#endif
+}
+
 int main(int argc, char* argv[])
 {
     // We test to get the used standard
     std::cout << "Supported C++ standard:" << '\n';
     std::cout << "C++ " << std::setfill('0') << std::setw(2) << cpp_year % 100 << '\n';
     std::cout << "============================================================" << '\n' << '\n';
+
+    std::cout << say_hello() << std::endl;
+    return EXIT_SUCCESS;
 }
