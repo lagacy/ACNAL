@@ -12,7 +12,7 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
       "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
-      "cmakeToolchain": ""
+      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
     },
     {
       "name": "x64-Release-VS",
@@ -27,7 +27,7 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
       "intelliSenseMode": "windows-msvc-x64",
-      "cmakeToolchain": ""
+      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
     },
     {
       "name": "x64-Debug-VS",
@@ -42,7 +42,7 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
       "intelliSenseMode": "windows-msvc-x64",
-      "cmakeToolchain": ""
+      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
     }
   ]
 }

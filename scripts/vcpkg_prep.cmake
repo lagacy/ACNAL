@@ -54,12 +54,16 @@ function(vcpkg_setup)
 	endif()
  endif()
 
- # Now verify that vcpkg is already bootstrapped
-  if(NOT ${CMAKE_TOOLCHAIN_FILE} STREQUAL "${vcpkg_toolchain}")
-
-   set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain})
-   message("emended vcpkg toolchain path to: ${vcpkg_toolchain}")
-
+ # Now verify that vcpkg is added to the toolchain
+  if(NOT "${vcpkg_toolchain}" STREQUAL "${CMAKE_TOOLCHAIN_FILE}")
+   message(STATUS "vcpkg toolchain location has not been set or is wrong in the cmake_toolchain_file,adding it right now")
+  set(CMAKE_TOOLCHAIN_FILE "${vcpkg_toolchain}/scripts/buildsystems/vcpkg.cmake"
+    CACHE STRING "Cmake toolchain file")
+	if("${vcpkg_toolchain}" STREQUAL "${CMAKE_TOOLCHAIN_FILE}")
+		message(STATUS "Has been added successfully to the cmake toolchain")
+	else()
+	message(SEND_ERROR "vcpkg toolchain can't be set with sucess, try adding it manually in the CMakeSettings.json file with this line : \${projectDir}\external\vcpkg\scripts\buildsystems\vcpkg.cmake")
+	endif()
   endif()
 
   # We verify again if everything is there
