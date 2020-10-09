@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-file(GLOB_RECURSE SFCollection "*.cpp")
-file(GLOB_RECURSE HFCollection "*.h")
+file(GLOB_RECURSE SFCollection "private/*.cpp")
+file(GLOB_RECURSE HFCollection "public/*.h")
 
 
 add_library(ACNAL 

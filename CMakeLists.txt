@@ -11,6 +11,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/lib)
 
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/scripts")
+
+include (vcpkg_prep)
+
 #Get the actual OS and store it as a preprocessor definition to be used in source code
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 add_compile_definitions(IS_LINUX)
@@ -38,6 +42,9 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/src")
 add_subdirectory("src")
+
+# vcpkg setup
+vcpkg_setup()
 
 if(${CMAKE_CONFIGURATION_TYPES} MATCHES "Debug")
 find_library(ACNAL_LOC NAMES ACNAL PATHS $<TARGET_FILE_DIR:ACNAL>)
