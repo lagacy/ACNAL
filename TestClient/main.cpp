@@ -1,5 +1,5 @@
-/// This program examines features of the C++ library
-/// to deduce and print the C++ version.
+/// This program log some informations about the API, test some macro values and
+/// deduce and print the C++ version.
 #include <algorithm>
 #include <iomanip>
 #include <iostream>
