@@ -14,6 +14,12 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/scripts")
 
 include (vcpkg_prep)
 
+# vcpkg setup
+vcpkg_setup()
+
+# configure packages
+include (gtest_config)
+
 #Get the actual OS and store it as a preprocessor definition to be used in source code
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 add_compile_definitions(IS_LINUX)
@@ -41,9 +47,6 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/src")
 add_subdirectory("src")
-
-# vcpkg setup
-vcpkg_setup()
 
 if(${CMAKE_CONFIGURATION_TYPES} MATCHES "Debug")
 find_library(ACNAL_LOC NAMES ACNAL PATHS $<TARGET_FILE_DIR:ACNAL>)
