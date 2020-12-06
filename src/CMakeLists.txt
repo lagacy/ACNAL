@@ -14,3 +14,5 @@ set_target_properties(ACNAL
   LINKER_LANGUAGE C
   RUNTIME_OUTPUT_DIRECTORY_DEBUG "${PROJECT_BINARY_DIR}/bin"
 )
+
+target_include_directories(ACNAL PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/public")
