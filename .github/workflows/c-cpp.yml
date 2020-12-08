@@ -13,11 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: configure
-      run: ccmake .
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.4
+      with:
+        cmake-version: '3.19.x'
+    - name: Use cmake
+      run: cmake --version
