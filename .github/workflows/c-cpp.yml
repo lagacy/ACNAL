@@ -20,6 +20,6 @@ jobs:
     - name: Structure
       run: ls
     - name: Init project
-      run: cmake /ACNAL
+      run: cmake .
     - name: Make project
-      run: make /ACNAL
+      run: make
