@@ -17,5 +17,7 @@ jobs:
       uses: jwlawson/actions-setup-cmake@v1.4
       with:
         cmake-version: '3.19.x'
-    - name: Use cmake
-      run: ccmake
+    - name: Init project
+      run: ccmake .
+    - name: Make project
+      run: make
