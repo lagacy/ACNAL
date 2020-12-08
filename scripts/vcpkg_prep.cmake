@@ -45,7 +45,7 @@ function(vcpkg_setup)
 		message(STATUS "Bootrapping vcpkg for MacOS or linux")
 		execute_process(
 		COMMAND
-			bash -c bootstrap-vcpkg.sh
+			bootstrap-vcpkg.sh
 		WORKING_DIRECTORY
 			${vcpkg_root}
 		OUTPUT_VARIABLE BOOTSTRAP_RESULT
