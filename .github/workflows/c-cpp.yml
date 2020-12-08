@@ -1,0 +1,25 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.4
+      with:
+        cmake-version: '3.19.x'
+    - name: Move to vcpkg
+      run: cd external/vcpkg && ls
+    - name: Init project
+      run: cmake .
+    - name: Make project
+      run: make
