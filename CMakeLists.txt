@@ -14,12 +14,16 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/lib)
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/scripts")
 
 include (vcpkg_prep)
+include (doxygen_config)
 
 # vcpkg setup
 vcpkg_setup()
 
-# configure packages
+# configure gtest
 include (gtest_config)
+
+# configure doxygen
+doxygen_setup()
 
 #Get the actual OS and store it as a preprocessor definition to be used in source code
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
