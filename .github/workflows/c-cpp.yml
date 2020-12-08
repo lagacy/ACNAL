@@ -18,4 +18,4 @@ jobs:
       with:
         cmake-version: '3.19.x'
     - name: Use cmake
-      run: cmake --version
+      run: ccmake
