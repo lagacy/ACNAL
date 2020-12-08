@@ -18,9 +18,7 @@ jobs:
       with:
         cmake-version: '3.19.x'
     - name: Move to vcpkg
-      run: cd external/vcpkg
-    - name: Structure
-      run: ls
+      run: cd external/vcpkg && ls
     - name: Init project
       run: cmake .
     - name: Make project
