@@ -17,6 +17,8 @@ jobs:
       uses: jwlawson/actions-setup-cmake@v1.4
       with:
         cmake-version: '3.19.x'
+    - name: Structure
+      run: ls
     - name: Init project
       run: cmake /ACNAL
     - name: Make project
