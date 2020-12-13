@@ -49,20 +49,16 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES MSVC)
 add_compile_definitions(IS_MSVC_CXX_COMPILER)
 endif()
 
-
+# See cmakelists in src folder
 include_directories("${PROJECT_SOURCE_DIR}/src")
 add_subdirectory("src")
 
-if(${CMAKE_CONFIGURATION_TYPES} MATCHES "Debug")
-find_library(ACNAL_LOC NAMES ACNAL PATHS $<TARGET_FILE_DIR:ACNAL>)
-add_executable(TestClient ./TestClient/main.cpp)
-set_target_properties(TestClient
- PROPERTIES
-  RUNTIME_OUTPUT_DIRECTORY_DEBUG "${PROJECT_BINARY_DIR}/bin"
-)
-target_include_directories(TestClient PUBLIC
-	"${PROJECT_BINARY_DIR}"
-	"${PROJECT_SOURCE_DIR}/src/Core"
-)
-target_link_libraries(TestClient ACNAL)
-endif()
+# See cmakelists in samples folder
+include_directories("${PROJECT_SOURCE_DIR}/samples")
+add_subdirectory("samples")
+
+if(${BUILD_TESTS})
+	# See cmakelists in tests folder
+	include_directories("${PROJECT_SOURCE_DIR}/tests")
+	add_subdirectory("tests")
+endif(${BUILD_TESTS})
