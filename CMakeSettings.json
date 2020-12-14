@@ -2,7 +2,7 @@
   "configurations": [
     {
       "name": "x64-Release",
-      "generator": "Visual Studio 16 2019 Win64",
+      "generator": "Ninja",
       "configurationType": "Release",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
@@ -12,26 +12,12 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
       "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
-      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
+      "intelliSenseMode": "windows-msvc-x64"
     },
     {
-      "name": "x64-Release-VS",
-      "generator": "Visual Studio 16 2019 Win64",
-      "configurationType": "Release",
-      "buildRoot": "${projectDir}\\out\\build\\${name}",
-      "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
-      "cmakeCommandArgs": "",
-      "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x64_x64" ],
-      "variables": [],
-      "intelliSenseMode": "windows-msvc-x64",
-      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-    },
-    {
-      "name": "x64-Debug-VS",
-      "generator": "Visual Studio 16 2019 Win64",
+      "name": "x64-Debug",
+      "generator": "Ninja",
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
@@ -39,10 +25,64 @@
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
+      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
-      "intelliSenseMode": "windows-msvc-x64",
-      "cmakeToolchain": "${projectDir}\\external\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+      "intelliSenseMode": "windows-msvc-x64"
+    },
+    {
+      "name": "x86-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x86" ],
+      "variables": []
+    },
+    {
+      "name": "x86-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x86" ],
+      "variables": []
+    },
+    {
+      "name": "WSL-Clang-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeExecutable": "cmake",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_clang_x64" ],
+      "wslPath": "${defaultWSLPath}",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": []
+    },
+    {
+      "name": "WSL-Clang-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeExecutable": "cmake",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_clang_x64" ],
+      "wslPath": "${defaultWSLPath}",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": []
     }
   ]
 }
