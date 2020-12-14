@@ -1,37 +1,44 @@
 cmake_minimum_required (VERSION 3.8)
-
 #setup all your packages dependencies here
 option(BUILD_TESTS "Enable tests pipeline" ON)
 
 if(${BUILD_TESTS})
 message(STATUS "Configuring Gtest package")
-enable_testing()
+enable_testing()¸
+
 find_package(GTest)
 if(NOT ${GTEST_FOUND})
 
 	message(STATUS "Gtest package can't be found")
-	if(WIN32)
-	message(STATUS "Installing GTest for windows")
-	execute_process(
-		COMMAND
-			./external/vcpkg/vcpkg install gtest:x64-windows
-		WORKING_DIRECTORY
-			${PROJECT_SOURCE_DIR}
-		OUTPUT_VARIABLE VCPKG_RESULT
-    )
-	 message("${VCPKG_RESULT}")
+	# Download and unpack googletest at configure time
+	configure_file(${PROJECT_SOURCE_DIR}/CMakeLists.txt.in googletest-download/CMakeLists.txt)
+	execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+		WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download"
+	)
+	execute_process(COMMAND "${CMAKE_COMMAND}" --build .
+		WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download"
+	)
 
-	 else()
-	 message(STATUS "Installing GTest for unix")
-	 execute_process(
-		COMMAND
-			./external/vcpkg/vcpkg install GTest
-		WORKING_DIRECTORY
-			${PROJECT_SOURCE_DIR}
-		OUTPUT_VARIABLE VCPKG_RESULT
-    )
-	 message("${VCPKG_RESULT}")
-	 endif()
+	# Prevent GoogleTest from overriding our compiler/linker options
+	# when building with Visual Studio
+	set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+	# Add googletest directly to our build. This adds the following targets:
+	# gtest, gtest_main, gmock and gmock_main
+	add_subdirectory("${CMAKE_BINARY_DIR}/googletest-src"
+					"${CMAKE_BINARY_DIR}/googletest-build"
+	)
+
+	# The gtest/gmock targets carry header search path dependencies
+	# automatically when using CMake 2.8.11 or later. Otherwise we
+	# have to add them here ourselves.
+	if(CMAKE_VERSION VERSION_LESS 2.8.11)
+		include_directories("${gtest_SOURCE_DIR}/include"
+							"${gmock_SOURCE_DIR}/include"
+		)
+
+# Now simply link your own targets against gtest, gmock,
+# etc. as appropriate
 
      find_package(GTest REQUIRED)
 	else()
